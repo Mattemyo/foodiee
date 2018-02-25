@@ -144,8 +144,8 @@ div.recipe-name h3 {
 }
 
 div.recipe-image img {
-  margin: 10px 45px;
-  width: 80%;
+  width: 90%;
+  margin: 0 5%;
   box-shadow: 2px 2px 2px black;
 }
 
@@ -161,4 +161,9 @@ div.recipe-image img {
   div.results {
     width: 50%;
   }
+  div.recipe-image img {
+  width: 80%;
+  margin: auto 10%;
+  box-shadow: 2px 2px 2px black;
+}
 }
