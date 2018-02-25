@@ -1,46 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ComponentShell from '../../components/ComponentShell';
 
-class RecipeCard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      displayClass: 'recipe-card fade-in'
-    };
-  }
-  componentWillMount() {
-    this.setState({ displayClass: 'recipe-card' });
-  }
+const RecipeCard = ({ recipe }) => {
+  const ingredients = recipe.ingredientLines.map(ingredient => (
+    <li key={Math.random()}>{ingredient}</li>
+  ));
 
-  render() {
-    const { recipe } = this.props;
-
-    const ingredients = recipe.ingredientLines.map(ingredient => (
-      <li key={Math.random()}>{ingredient}</li>
-    ));
-
-    return (
-      <div className={this.state.displayClass}>
-        <div className="recipe-name">
-          <h3>{recipe.label}</h3>
-        </div>
-        <div className="recipe-image">
-          <img
-            alt={recipe.label}
-            src={recipe.image}
-            style={{ borderRadius: '5px' }}
-          />
-        </div>
-        <div className="ingredients">
-          <ul>{ingredients}</ul>
-        </div>
-        <div>
-          <a target="_blank" href={recipe.url}>
-            See full recipe
-          </a>
-        </div>
+  return (
+    <div className="recipe-card">
+      <div className="recipe-name">
+        <h3>{recipe.label}</h3>
       </div>
-    );
-  }
-}
+      <div className="recipe-image">
+        <img
+          alt={recipe.label}
+          src={recipe.image}
+          style={{ borderRadius: '5px' }}
+        />
+      </div>
+      <div className="ingredients">
+        <ul>{ingredients}</ul>
+      </div>
+      <div>
+        <a target="_blank" href={recipe.url}>
+          See full recipe
+        </a>
+      </div>
+    </div>
+  );
+};
 
-export default RecipeCard;
+const TransitionedRecipeCard = ComponentShell(RecipeCard);
+
+export default TransitionedRecipeCard;

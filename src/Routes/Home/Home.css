@@ -148,24 +148,8 @@ div.recipe-image img {
   width: 80%;
   box-shadow: 2px 2px 2px black;
 }
-div.fade-in {
-   opacity: 1;
-   animation: fadeIn 2s linear 1;
-}
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
 
-  1% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
 
 @media screen and (min-width: 800px) {
   div.search-terms {

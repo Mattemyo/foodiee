@@ -27,18 +27,6 @@ class Home extends Component {
     this.setState({ searchBoxInput: e.target.value });
   };
 
-  addSearchTerm = () => {
-    const inputValue = this.state.searchBoxInput;
-    const regex = /^[a-zA-Z]+$/;
-    if (!inputValue || !regex.test(inputValue)) {
-      this.setState({ searchBoxInput: '' });
-      console.log('oops!');
-      return false;
-    }
-    const arr = this.state.searchTerms;
-    arr.push(inputValue);
-    this.setState({ searchTerms: arr, searchBoxInput: '' });
-  };
   removeSearchTerm = term => {
     this.setState({
       searchTerms: this.state.searchTerms.filter(el => el !== term)
@@ -62,9 +50,24 @@ class Home extends Component {
         )}&app_id=${apiAppId}&app_key=${apiKey}`
       )
       .then((response: {}) => {
-        this.setState({ hits: response.data.hits, isLoading: false });
-        console.log(this.state.hits);
+        this.setState({
+          hits: response.data.hits,
+          isLoading: false
+        });
       });
+  };
+
+  addSearchTerm = () => {
+    const inputValue = this.state.searchBoxInput;
+    const regex = /^[a-zA-Z]+$/;
+    if (!inputValue || !regex.test(inputValue)) {
+      this.setState({ searchBoxInput: '' });
+      console.log('oops!');
+      return false;
+    }
+    const arr = this.state.searchTerms;
+    arr.push(inputValue);
+    return this.setState({ searchTerms: arr, searchBoxInput: '' });
   };
 
   render() {
@@ -81,6 +84,7 @@ class Home extends Component {
           getRecipes={this.getRecipes}
           removeAllSearchTerms={this.removeAllSearchTerms}
         />
+
         <Recipes hits={this.state.hits} isLoading={this.state.isLoading} />
       </div>
     );

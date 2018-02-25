@@ -1,10 +1,10 @@
 import React from 'react';
-import RecipeCard from './RecipeCard';
+import TransitionedRecipeCard from './RecipeCard';
 import Spinner from '../../components/Spinner/Spinner';
 
 const Recipes = ({ hits, isLoading }) => {
   const recipeCards = hits.map((hit: {}) => (
-    <RecipeCard key={Math.random()} recipe={hit.recipe} />
+    <TransitionedRecipeCard key={Math.random()} recipe={hit.recipe} />
   ));
 
   return (
