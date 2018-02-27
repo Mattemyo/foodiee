@@ -4,8 +4,10 @@ import Spinner from '../../components/Spinner/Spinner';
 
 const Recipes = ({ hits, isLoading }) => {
   const recipeCards = hits.map((hit: {}) => (
-    <TransitionedRecipeCard key={Math.random()} recipe={hit.recipe} />
+    <TransitionedRecipeCard key={Math.random()} recipe={hit.recipe} hitsLength={hits.length}/>
   ));
+
+
 
   return (
     <div className="recipes">
