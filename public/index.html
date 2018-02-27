@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -19,14 +20,122 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    <!--
+  <title>React App</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre');
+
+    body {
+      margin-top: 80px;
+      width: 100%;
+      min-height: 100vh;
+      margin-bottom: 0;
+      background: #e97e72;
+
+      position: relative;
+    }
+
+    .App {
+      text-align: center;
+    }
+
+    .App-header {
+      background: #ff8c7f;
+
+      height: 150px;
+      padding: 20px;
+    }
+
+    .App-intro {
+      font-size: large;
+    }
+
+    .cube {
+      -webkit-transform-style: preserve-3d;
+      -webkit-animation: spin 3s infinite ease-out;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      left: 47vw;
+      line-height: 2;
+    }
+
+    .cube div {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      box-shadow: inset 0px 0px 0px 1px #ff8177;
+      background: #b12a5b85;
+      display: block;
+      position: absolute;
+    }
+
+    .cube div.top {
+      -webkit-transform: rotateX(90deg);
+      margin-top: -12px;
+    }
+
+    .cube div.right {
+      -webkit-transform: rotateY(90deg);
+      margin-left: 12px;
+    }
+
+    .cube div.bottom {
+      -webkit-transform: rotateX(-90deg);
+      margin-top: 12px;
+    }
+
+    .cube div.left {
+      -webkit-transform: rotateY(-90deg);
+      margin-left: -12px;
+    }
+
+    .cube div.front {
+      -webkit-transform: translateZ(12px);
+    }
+
+    .cube div.back {
+      -webkit-transform: translateZ(-12px) rotateX(180deg);
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotateX(-20deg) rotateY(20deg);
+      }
+      100% {
+        -webkit-transform: rotateX(-20deg) rotateY(740deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root">
+
+    <div class="App">
+      <div class="App-header">
+        <h2>Gnam Gnam</h2>
+        <div class="cube">
+          <div class="top"></div>
+          <div class="right"></div>
+          <div class="bottom"></div>
+          <div class="left"></div>
+          <div class="front"></div>
+          <div class="back"></div>
+        </div>
+      </div>
+      <p class="App-intro">
+        Loading site...
+      </p>
+
+    </div>
+
+  </div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -36,5 +145,23 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        }).catch(function (err) {
+          console.log(err)
+        });
+      });
+    } else {
+      console.log('service worker is not supported');
+    }
+  </script>
+</body>
+
 </html>
