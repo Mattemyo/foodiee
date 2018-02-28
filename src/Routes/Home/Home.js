@@ -23,14 +23,8 @@ class Home extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.installPromptBanner = new InstallPrompt();
-    this.installPromptBanner.addCount();
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.cid !== this.props.cid) {
-      this.installPromptBanner.addCount().checkPrompt();
-    }
-  }
+ 
 
   onInputChange = e => {
     this.setState({ searchBoxInput: e.target.value });
