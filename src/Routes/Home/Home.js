@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import InstallPrompt from 'install-prompt-banner';
 import SearchTerms from './SearchTerms';
 import SearchBar from './SearchBar';
 import Recipes from './Recipes';
@@ -19,8 +20,16 @@ class Home extends Component {
     super(props);
     this.state = getInitialState();
   }
+
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.installPromptBanner = new InstallPrompt();
+    this.installPromptBanner.addCount();
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.cid !== this.props.cid) {
+      this.installPromptBanner.addCount().checkPrompt();
+    }
   }
 
   onInputChange = e => {
