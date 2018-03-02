@@ -1,6 +1,7 @@
 import React from 'react';
-import TransitionedRecipeCard from './RecipeCard';
-import Spinner from '../../components/Spinner/Spinner';
+import TransitionedRecipeCard from '../RecipeCard/RecipeCard';
+import Spinner from '../..//../components/Spinner/Spinner';
+import './Recipes.css';
 
 const Recipes = ({ hits, isLoading }) => {
   const recipeCards = hits.map((hit: {}) => (

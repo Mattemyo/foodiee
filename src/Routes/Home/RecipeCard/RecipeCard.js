@@ -1,5 +1,6 @@
 import React from 'react';
-import ComponentShell from '../../components/ComponentShell';
+import ComponentShell from '../../../components/ComponentShell';
+import './RecipeCard.css';
 
 const RecipeCard = ({ recipe }) => {
   const ingredients = recipe.ingredientLines.map(ingredient => (

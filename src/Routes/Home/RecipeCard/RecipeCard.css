@@ -1,0 +1,26 @@
+div.results div.recipe-card {
+  background: #ff8c7f;
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-shadow: 1px 1px 4px 2px #00000015;
+  -moz-box-shadow: 1px 1px 4px 2px #00000015;
+  box-shadow: 1px 1px 4px 2px #00000015;
+  border-radius: 3px 15px;
+}
+
+div.recipe-name h3 {
+  text-align: center;
+  margin: 20px auto;
+  width: 60%;
+}
+
+div.recipe-image img {
+  width: 90%;
+  margin: 0 5%;
+  box-shadow: 2px 2px 2px black;
+}
+
+
+ul {
+  text-align: left;
+}

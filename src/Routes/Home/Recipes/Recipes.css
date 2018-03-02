@@ -1,0 +1,13 @@
+/* =========  Results =========== */
+
+div.results {
+  min-height: 300px;
+  margin-bottom: 20px;
+  width: 80%;
+  margin: 0 auto;
+  background: hsl(42, 90%, 67%);
+  padding: 10px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.466);
+  border-radius: 3px 15px;
+}
+

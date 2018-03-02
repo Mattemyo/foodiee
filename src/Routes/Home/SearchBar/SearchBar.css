@@ -1,0 +1,33 @@
+/* ============= SearchBar ========= */
+
+div.search-bar {
+  background: #ff8c7f;
+  display: flex;
+}
+
+div.search-bar > div {
+  margin: 20px auto;
+}
+
+div.search-bar input, div.search-bar button {
+  font-size: 20px;
+  padding: 5px;
+  outline: 0;
+  border: none;
+  box-shadow: 2px 0px 2px 2px rgba(0, 0, 0, 0.055);
+  background: hsl(6, 50%, 75%);
+}
+
+div.search-bar input {
+  border-radius: 4px 0 0 4px;
+}
+
+div.search-bar button {
+  border-radius: 4px 0 0 4px;
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+}
+
+div.search-bar button:hover {
+  transform: scale(1.02);
+}

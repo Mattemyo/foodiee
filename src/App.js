@@ -6,7 +6,7 @@ import Contact from './Routes/Contact/Contact';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navigation/Navbar';
-import NotFound from './Routes/NotFound';
+import NotFound from './Routes/NotFound/NotFound';
 import PageShell from './components/PageShell';
 
 const App = () => (

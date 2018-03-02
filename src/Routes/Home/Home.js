@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import InstallPrompt from 'install-prompt-banner';
-import SearchTerms from './SearchTerms';
-import SearchBar from './SearchBar';
-import Recipes from './Recipes';
+import SearchTerms from './SearchTerms/SearchTerms';
+import SearchBar from './SearchBar/SearchBar';
+import Recipes from './Recipes/Recipes';
 import './Home.css';
 
 const apiKey = 'a4c96a92aa69348f8ced3c9141f42517';
