@@ -5,19 +5,19 @@ import './Recipes.css';
 
 const Recipes = ({ hits, isLoading }) => {
   const recipeCards = hits.map((hit: {}) => (
-    <TransitionedRecipeCard key={Math.random()} recipe={hit.recipe} hitsLength={hits.length}/>
+    <TransitionedRecipeCard
+      key={Math.random()}
+      recipe={hit.recipe}
+      hitsLength={hits.length}
+    />
   ));
-
-
 
   return (
     <div className="recipes">
       <div className="title">
-        <h2>
-          Recipes <span>{isLoading ? <Spinner /> : false}</span>
-        </h2>
+        <h2>Recipes{''}</h2>
       </div>
-
+      {isLoading ? <Spinner /> : false}
       <div className="results">{recipeCards}</div>
     </div>
   );

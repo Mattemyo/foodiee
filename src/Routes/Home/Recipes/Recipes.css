@@ -11,3 +11,10 @@ div.results {
   border-radius: 3px 15px;
 }
 
+/* ======= SPINNER ====== */
+
+div.cube {
+  position: fixed;
+  top: 90vh;
+  left: 85vw;
+}
